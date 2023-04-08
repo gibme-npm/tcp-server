@@ -1,4 +1,4 @@
-// Copyright (c) 2022, Brandon Lehmann <brandonlehmann@gmail.com>
+// Copyright (c) 2022-2023, Brandon Lehmann <brandonlehmann@gmail.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -64,8 +64,14 @@ export default class TCPServer extends Server {
     /**
      * Returns an iterator of currently connected sockets
      */
-    public get sockets (): IterableIterator<Socket> {
-        return this.__connections.values();
+    public get sockets (): Socket[] {
+        const result: Socket[] = [];
+
+        for (const [, socket] of this.__connections) {
+            result.push(socket);
+        }
+
+        return result;
     }
 
     /**
@@ -146,7 +152,7 @@ export default class TCPServer extends Server {
         backlog = 511
     ): Promise<void> {
         if (this.listening) {
-            throw new Error('Server is already listening');
+            return;
         }
 
         return new Promise((resolve, reject) => {

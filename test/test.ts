@@ -1,4 +1,4 @@
-// Copyright (c) 2022, Brandon Lehmann <brandonlehmann@gmail.com>
+// Copyright (c) 2022-2023, Brandon Lehmann <brandonlehmann@gmail.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -18,7 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import assert from 'assert';
+import * as assert from 'assert';
 import { it, before, after, describe } from 'mocha';
 import { createServer, createConnection, Socket } from '../src/tcp-server';
 
