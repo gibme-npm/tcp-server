@@ -1,6 +1,6 @@
 {
   "name": "@gibme/tcp-server",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Lazy wrapper for TCP server(s)",
   "main": "dist/tcp-server.js",
   "types": "dist/tcp-server.d.ts",
