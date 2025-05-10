@@ -1,4 +1,4 @@
-// Copyright (c) 2022-2023, Brandon Lehmann <brandonlehmann@gmail.com>
+// Copyright (c) 2022-2025, Brandon Lehmann <brandonlehmann@gmail.com>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,7 +20,7 @@
 
 import * as assert from 'assert';
 import { it, before, after, describe } from 'mocha';
-import { createServer, createConnection, Socket } from '../src/tcp-server';
+import { createServer, createConnection, Socket } from '../src';
 
 describe('Unit Tests', () => {
     const message = Buffer.from('The quick brown fox jumped over the lazy dog', 'utf-8');
