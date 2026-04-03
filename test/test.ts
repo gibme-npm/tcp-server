@@ -19,7 +19,7 @@
 // SOFTWARE.
 
 import * as assert from 'assert';
-import { it, before, after, describe } from 'mocha';
+import { it, before, after, describe } from 'node:test';
 import { createServer, createConnection, Socket } from '../src';
 
 describe('Unit Tests', () => {
@@ -38,7 +38,7 @@ describe('Unit Tests', () => {
 
         await server.start();
 
-        return new Promise(resolve => {
+        return new Promise<void>(resolve => {
             client = createConnection(
                 server.bindPort,
                 server.bindIP === '0.0.0.0' ? '127.0.0.1' : server.bindIP,
@@ -57,7 +57,7 @@ describe('Unit Tests', () => {
     });
 
     it('Receive', async () => {
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             client.once('data', (payload: Buffer) => {
                 assert.deepEqual(payload, message);
 
@@ -73,7 +73,7 @@ describe('Unit Tests', () => {
     });
 
     it('Send', async () => {
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             client.once('data', (payload: Buffer) => {
                 // echo data back
                 client.write(payload, error => {
